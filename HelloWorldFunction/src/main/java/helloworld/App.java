@@ -27,12 +27,11 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         headers.put("X-Custom-Header", "application/json");
 
 
-        String queueName = System.getenv("QUEUE_NAME");
-        System.out.println(queueName);
+        String queueUrl = System.getenv("QUEUE_URL");
+        System.out.println(queueUrl);
         AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
-//        String queueUrl = sqs.getQueueUrl(queueName).getQueueUrl();
         SendMessageRequest send_msg_request = new SendMessageRequest()
-                .withQueueUrl(queueName)
+                .withQueueUrl(queueUrl)
                 .withMessageBody("hello world")
                 .withDelaySeconds(5);
         sqs.sendMessage(send_msg_request);

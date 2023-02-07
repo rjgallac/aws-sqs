@@ -3,3 +3,6 @@
 *.iml
 HelloWorldFunction/.gradle
 samconfig.toml
+HelloWorldFunction/build
+SecondFunction/build
+SecondFunction/.gradle
