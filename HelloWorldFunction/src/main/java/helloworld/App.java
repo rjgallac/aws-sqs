@@ -32,8 +32,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
         SendMessageRequest send_msg_request = new SendMessageRequest()
                 .withQueueUrl(queueUrl)
-                .withMessageBody("hello world")
-                .withDelaySeconds(5);
+                .withMessageBody("hello world");
         sqs.sendMessage(send_msg_request);
 
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent()
